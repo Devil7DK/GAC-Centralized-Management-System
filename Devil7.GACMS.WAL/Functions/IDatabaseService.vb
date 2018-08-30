@@ -20,6 +20,7 @@
 
 Imports Devil7.GACMS.Utils.Objects
 
+<ServiceContract>
 Public Interface IDatabaseService
 
     <OperationContract>

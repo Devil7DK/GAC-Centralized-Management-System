@@ -2,7 +2,7 @@
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ServiceLayer
-    Inherits System.ServiceProcess.ServiceBase
+    Inherits ServiceBase
 
     'UserService overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>

@@ -30,7 +30,7 @@ Public Class ServiceLayer
         Dim strAdrHTTP As String = "http://localhost:9001/DatabaseService"
 
         Dim adrbase As Uri() = {New Uri(strAdrHTTP)}
-        m_svcHost = New ServiceHost(GetType(IDatabaseService), adrbase)
+        m_svcHost = New ServiceHost(GetType(DatabaseService), adrbase)
         Dim mBehave As ServiceMetadataBehavior = New ServiceMetadataBehavior()
         m_svcHost.Description.Behaviors.Add(mBehave)
 
