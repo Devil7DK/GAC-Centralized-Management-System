@@ -21,24 +21,26 @@
 Imports Devil7.GACMS.Utils.Modules
 Imports System.Data.SqlClient
 
-Public Module Connection
+Namespace Misc
+    Public Module Connection
 
-    Dim ServerSettings As Settings
-    Dim Connection As SqlConnection
+        Dim ServerSettings As Settings
+        Dim Connection As SqlConnection
 
-    Public Function GetConnection() As SqlConnection
-        If Connection Is Nothing Then
-            Connection = CreateConnection()
-        End If
-        Return Connection
-    End Function
+        Public Function GetConnection() As SqlConnection
+            If Connection Is Nothing Then
+                Connection = CreateConnection()
+            End If
+            Return Connection
+        End Function
 
-    Private Function CreateConnection() As SqlConnection
-        If ServerSettings Is Nothing Then
-            ServerSettings = Settings.GetSettings
-        End If
-        Return New SqlConnection(String.Format("Server={0};Database={1};User Id={2};Password={3};Pooling={5}",
+        Private Function CreateConnection() As SqlConnection
+            If ServerSettings Is Nothing Then
+                ServerSettings = Settings.GetSettings
+            End If
+            Return New SqlConnection(String.Format("Server={0};Database={1};User Id={2};Password={3};Pooling={4}",
                                                ServerSettings.ServerName, ServerSettings.DatabaseName, ServerSettings.UserName, Encryption.Decrypt(ServerSettings.Password), ServerSettings.Pooling))
-    End Function
+        End Function
 
-End Module
+    End Module
+End Namespace
