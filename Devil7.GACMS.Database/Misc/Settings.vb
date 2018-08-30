@@ -30,11 +30,19 @@ Public Class Settings
         Dim R As New Settings
         If My.Computer.FileSystem.FileExists(ConfigFilePath) Then
             R = Objects.Serializer.FromFile(Of Settings)(ConfigFilePath)
+            CheckPassword(R)
         Else
             Objects.Serializer.ToFile(New Settings, ConfigFilePath)
         End If
         Return R
     End Function
+
+    Private Shared Sub CheckPassword(ByVal Settings As Settings)
+        If Settings.Password = Modules.Encryption.Decrypt(Settings.Password) Then
+            Settings.Password = Modules.Encryption.Encrypt(Settings.Password)
+            Objects.Serializer.ToFile(Settings, ConfigFilePath)
+        End If
+    End Sub
 
     Property DatabaseName As String = "GACMS"
     Property ServerName As String = "LOCALHOST"
