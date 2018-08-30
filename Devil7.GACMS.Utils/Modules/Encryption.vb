@@ -81,7 +81,7 @@ Namespace Modules
 
         'Decrypt Function: 
         Public Shared Function Decrypt(ByVal cipherText As String) As String
-            Dim strReturn As String = String.Empty
+            Dim strReturn As String = cipherText
             Try
                 Dim initVectorBytes As Byte()
                 initVectorBytes = System.Text.Encoding.ASCII.GetBytes(m_strInitVector)
@@ -129,7 +129,7 @@ Namespace Modules
                                                 decryptedByteCount)
                 strReturn = plainText
             Catch ex As Exception
-                strReturn = Nothing
+
             End Try
             Return strReturn
         End Function
