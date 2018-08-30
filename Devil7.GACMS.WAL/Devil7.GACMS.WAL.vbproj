@@ -48,10 +48,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -68,7 +70,8 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IStaffs.vb" />
+    <Compile Include="Functions\DatabaseService.vb" />
+    <Compile Include="Functions\IDatabaseService.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -79,6 +82,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Service\ServiceLayerInstaller.Designer.vb">
+      <DependentUpon>ServiceLayerInstaller.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ServiceLayerInstaller.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service\ServiceLayer.Designer.vb">
+      <DependentUpon>ServiceLayer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ServiceLayer.vb">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +106,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Service\ServiceLayerInstaller.resx">
+      <DependentUpon>ServiceLayerInstaller.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Settings.settings">
@@ -100,6 +118,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Devil7.GACMS.Database\Devil7.GACMS.Database.vbproj">
+      <Project>{b152b678-a98d-4166-860d-fc48e0f5df92}</Project>
+      <Name>Devil7.GACMS.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Devil7.GACMS.Utils\Devil7.GACMS.Utils.vbproj">
       <Project>{fe95c2db-6e96-4e41-9c03-7d96d338e036}</Project>
       <Name>Devil7.GACMS.Utils</Name>

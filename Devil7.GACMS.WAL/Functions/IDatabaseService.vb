@@ -20,7 +20,7 @@
 
 Imports Devil7.GACMS.Utils.Objects
 
-Public Interface IStaffs
+Public Interface IDatabaseService
 
     <OperationContract>
     Function GetStaff(ByVal Username As String, ByVal Password As String) As Staff
