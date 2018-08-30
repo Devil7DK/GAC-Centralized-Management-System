@@ -34,18 +34,18 @@ Namespace Objects
             End Using
         End Function
 
-        Public Sub ToFile(Of T)(ByVal Obj As T, ByVal Filename As String)
+        Public Shared Sub ToFile(Of T)(ByVal Obj As T, ByVal Filename As String)
             My.Computer.FileSystem.WriteAllText(Filename, ToXML(Obj), False)
         End Sub
 
-        Public Function FromXML(Of T)(ByVal XML As String) As T
+        Public Shared Function FromXML(Of T)(ByVal XML As String) As T
             Dim X As New XmlSerializer(GetType(T))
             Using MS As New IO.MemoryStream(Text.Encoding.ASCII.GetBytes(XML))
                 Return X.Deserialize(MS)
             End Using
         End Function
 
-        Public Function FromFile(Of T)(ByVal Filename As String) As T
+        Public Shared Function FromFile(Of T)(ByVal Filename As String) As T
             Return FromXML(Of T)(My.Computer.FileSystem.ReadAllText(Filename))
         End Function
 
