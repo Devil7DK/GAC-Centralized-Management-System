@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\Gender.vb" />
+    <Compile Include="Modules\Encryption.vb" />
     <Compile Include="Objects\Address.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
