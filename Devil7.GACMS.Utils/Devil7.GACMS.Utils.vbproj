@@ -86,6 +86,7 @@
     </Compile>
     <Compile Include="Objects\Staff.vb" />
     <Compile Include="Objects\Serializer.vb" />
+    <Compile Include="Objects\StaffInfo.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
