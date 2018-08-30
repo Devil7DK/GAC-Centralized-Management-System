@@ -62,7 +62,11 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\BloodGroup.vb" />
+    <Compile Include="Enums\Community.vb" />
     <Compile Include="Enums\Gender.vb" />
+    <Compile Include="Enums\MaritalStatus.vb" />
+    <Compile Include="Enums\Religion.vb" />
     <Compile Include="Modules\Encryption.vb" />
     <Compile Include="Objects\Address.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
