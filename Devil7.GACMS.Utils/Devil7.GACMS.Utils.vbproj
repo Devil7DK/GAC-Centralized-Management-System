@@ -76,6 +76,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\Encryption.vb" />
+    <Compile Include="Modules\SettingsManager.vb" />
     <Compile Include="Objects\Address.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -92,6 +93,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Objects\Settings.vb" />
     <Compile Include="Objects\Staff.vb" />
     <Compile Include="Objects\Serializer.vb" />
     <Compile Include="Objects\StaffInfo.vb" />
