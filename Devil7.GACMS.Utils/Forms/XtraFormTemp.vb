@@ -19,7 +19,7 @@
 '                                                                          '
 '=========================================================================='
 
-Namespace Classes
+Namespace Forms
     Public Class XtraFormTemp : Inherits DevExpress.XtraEditors.XtraForm
 
         Protected Overrides Function GetAllowSkin() As Boolean
