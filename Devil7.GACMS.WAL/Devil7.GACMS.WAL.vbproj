@@ -58,6 +58,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Selectors" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
@@ -77,6 +79,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Functions\Authendication.vb" />
     <Compile Include="Functions\DatabaseService.vb" />
     <Compile Include="Functions\IDatabaseService.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

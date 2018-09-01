@@ -35,6 +35,9 @@ Public Class ServiceLayer
         m_svcHost.Description.Behaviors.Add(mBehave)
 
         Dim httpb As WSHttpBinding = New WSHttpBinding()
+        httpb.Security.Mode = SecurityMode.TransportWithMessageCredential
+        httpb.Security.Message.ClientCredentialType = MessageCredentialType.UserName
+        httpb.Security.Transport.ClientCredentialType = HttpClientCredentialType.Basic
         m_svcHost.AddServiceEndpoint(GetType(IDatabaseService), httpb, strAdrHTTP)
         m_svcHost.AddServiceEndpoint(GetType(IMetadataExchange), MetadataExchangeBindings.CreateMexHttpBinding(), "mex")
 
