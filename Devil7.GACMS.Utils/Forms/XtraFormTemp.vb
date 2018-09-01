@@ -26,6 +26,17 @@ Namespace Classes
             Return True
         End Function
 
+        Sub New()
+            Try
+                Dim SkinName As String = Modules.SettingsManager.Settings.Skin
+                If SkinName <> "" Then
+                    Me.LookAndFeel.SkinName = SkinName
+                End If
+            Catch ex As Exception
+
+            End Try
+        End Sub
+
         Private Sub XtraFormTemp_Load(sender As Object, e As System.EventArgs) Handles Me.Load
             DevExpress.Skins.SkinManager.EnableFormSkins()
         End Sub
