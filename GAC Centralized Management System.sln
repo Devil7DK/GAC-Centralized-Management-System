@@ -11,6 +11,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Devil7.GACMS.WAL", "Devil7.
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Devil7.GACMS.Database", "Devil7.GACMS.Database\Devil7.GACMS.Database.vbproj", "{B152B678-A98D-4166-860D-FC48E0F5DF92}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Devil7.GACMS.WAL.Lib", "Devil7.GACMS.WAL.Lib\Devil7.GACMS.WAL.Lib.vbproj", "{E4B9166E-F946-43AD-8B92-083B52034689}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B152B678-A98D-4166-860D-FC48E0F5DF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B152B678-A98D-4166-860D-FC48E0F5DF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B152B678-A98D-4166-860D-FC48E0F5DF92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4B9166E-F946-43AD-8B92-083B52034689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4B9166E-F946-43AD-8B92-083B52034689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4B9166E-F946-43AD-8B92-083B52034689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4B9166E-F946-43AD-8B92-083B52034689}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -18,6 +18,7 @@
 '     Dineshkumar T
 '==========================================================================
 
+Imports Devil7.GACMS.WAL.Lib
 Imports System.ServiceModel.Description
 
 Public Class ServiceLayer
