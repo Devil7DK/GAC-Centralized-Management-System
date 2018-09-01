@@ -24,7 +24,7 @@ Public Class Authendication : Inherits System.IdentityModel.Selectors.UserNamePa
 
     Public Overrides Sub Validate(ByVal Username As String, ByVal Password As String)
         If Not Staffs.Authendicate(Username, Password) Then
-            Throw New FaultException("Incorrect Username or Password");
+            Throw New FaultException("Incorrect Username or Password")
         End If
     End Sub
 
