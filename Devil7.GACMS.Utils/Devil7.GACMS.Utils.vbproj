@@ -75,6 +75,7 @@
     <Compile Include="Forms\XtraFormTemp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modules\Certificate.vb" />
     <Compile Include="Modules\Encryption.vb" />
     <Compile Include="Modules\SettingsManager.vb" />
     <Compile Include="Objects\Address.vb" />
