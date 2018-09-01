@@ -23,23 +23,46 @@ Imports System.ServiceModel.Description
 Public Class ServiceLayer
 
     Private m_svcHost As ServiceHost = Nothing
+    Private m_Port As Integer = 9001
+    Private m_HttpsAddresses As String() = {
+        "https://localhost:{0}/DatabaseService"
+    }
+
+    Private Function GetURIs() As Uri()
+        Dim R As New List(Of Uri)
+        For Each i As String In m_HttpsAddresses
+            R.Add(New Uri(String.Format(i, m_Port)))
+        Next
+        Return R.ToArray
+    End Function
 
     Protected Overrides Sub OnStart(ByVal args As String())
+
+        Utils.Modules.Certificate.BindCertificateToPort(m_Port)
+
         If m_svcHost IsNot Nothing Then m_svcHost.Close()
 
-        Dim strAdrHTTP As String = "http://localhost:9001/DatabaseService"
+        m_svcHost = New ServiceHost(GetType(DatabaseService), GetURIs)
 
-        Dim adrbase As Uri() = {New Uri(strAdrHTTP)}
-        m_svcHost = New ServiceHost(GetType(DatabaseService), adrbase)
-        Dim mBehave As ServiceMetadataBehavior = New ServiceMetadataBehavior()
-        m_svcHost.Description.Behaviors.Add(mBehave)
+        Dim mBehave_MetaData As ServiceMetadataBehavior = New ServiceMetadataBehavior()
+        m_svcHost.Description.Behaviors.Add(mBehave_MetaData)
+
+        Dim mBehave_Security As New Description.ServiceCredentials
+        With mBehave_Security.UserNameAuthentication
+            .UserNamePasswordValidationMode = Security.UserNamePasswordValidationMode.Custom
+            .CustomUserNamePasswordValidator = New Authendication
+        End With
+        m_svcHost.Description.Behaviors.Add(mBehave_Security)
 
         Dim httpb As WSHttpBinding = New WSHttpBinding()
         httpb.Security.Mode = SecurityMode.TransportWithMessageCredential
         httpb.Security.Message.ClientCredentialType = MessageCredentialType.UserName
         httpb.Security.Transport.ClientCredentialType = HttpClientCredentialType.Basic
-        m_svcHost.AddServiceEndpoint(GetType(IDatabaseService), httpb, strAdrHTTP)
-        m_svcHost.AddServiceEndpoint(GetType(IMetadataExchange), MetadataExchangeBindings.CreateMexHttpBinding(), "mex")
+
+        For Each i As String In m_HttpsAddresses
+            m_svcHost.AddServiceEndpoint(GetType(IDatabaseService), httpb, String.Format(i, m_Port))
+        Next
+        m_svcHost.AddServiceEndpoint(GetType(IMetadataExchange), MetadataExchangeBindings.CreateMexHttpsBinding(), "mex")
 
         m_svcHost.Open()
     End Sub
@@ -49,6 +72,7 @@ Public Class ServiceLayer
             m_svcHost.Close()
             m_svcHost = Nothing
         End If
+        Utils.Modules.Certificate.RemoveBinding()
     End Sub
 
 End Class
